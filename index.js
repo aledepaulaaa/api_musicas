@@ -30,6 +30,15 @@ app.use((req, res, next) => {
   res.status(404).json({ error: 'Rota não encontrada' });
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://c97f-2804-187c-8125-4b00-e476-a2a1-d0bd-fc72.ngrok-free.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  next();
+});
+
+
 app.listen(8080, () => {
   console.log('Servidor rodando na porta 8080');
 });
